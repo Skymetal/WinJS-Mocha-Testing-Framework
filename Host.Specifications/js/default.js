@@ -1,34 +1,69 @@
-﻿// For an introduction to the Blank template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkId=232509
-(function () {
+﻿// ===============================================================================
+//  Microsoft patterns & practices
+//  Hilo JS Guidance
+// ===============================================================================
+//  Copyright © Microsoft Corporation.  All rights reserved.
+//  This code released under the terms of the 
+//  Microsoft patterns & practices license (http://hilojs.codeplex.com/license)
+// ===============================================================================
+
+(function (globals) {
     "use strict";
 
-    WinJS.Binding.optimizeBindingReferences = true;
+    var activation = Windows.ApplicationModel.Activation,
+        app = WinJS.Application;
 
-    var app = WinJS.Application;
-    var activation = Windows.ApplicationModel.Activation;
+    function setupImages(exists) {
+        var promise;
 
-    app.onactivated = function (args) {
-        if (args.detail.kind === activation.ActivationKind.launch) {
-            if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-                // TODO: This application has been newly launched. Initialize
-                // your application here.
-            } else {
-                // TODO: This application has been reactivated from suspension.
-                // Restore application state here.
-            }
-            args.setPromise(WinJS.UI.processAll());
+        if (exists) {
+            promise = WinJS.Promise.as(exists); /* this is an empty promise */
+        } else {
+            promise = Shared.copyImagesToIndexedFolder();
         }
+
+        return promise;
+    }
+
+    function runSpecs() {
+        // configure the spec runner
+        var specRunner = new Hilo.SpecRunner({
+            src: "src",
+            specs: "specs",
+            helpers: "specs/helpers"
+        });
+
+        // Handle any errors in the execution that
+        // were not part of a failing test
+        specRunner.addEventListener("error", function (args) {
+            document.querySelector("body").innerText = args.detail;
+        });
+
+        // run the specs
+        specRunner.run();
+    }
+
+    WinJS.Application.onerror = function (e) {
+        var errorsList = document.querySelector("#errors ul");
+        var errorEl = document.createElement("li");
+        errorEl.innerText = JSON.stringify(e.detail.exception);
+        errorsList.appendChild(errorEl);
+
+        document.querySelector("#errors").style.display = "block";
+        // By returning true, we signal that the exception was handled,
+        // preventing the application from being terminated
+        return true;
     };
 
-    app.oncheckpoint = function (args) {
-        // TODO: This application is about to be suspended. Save any state
-        // that needs to persist across suspensions here. You might use the
-        // WinJS.Application.sessionState object, which is automatically
-        // saved and restored across suspension. If you need to complete an
-        // asynchronous operation before your application is suspended, call
-        // args.setPromise().
-    };
+    app.addEventListener("activated", function (args) {
+        if (args.detail.kind === activation.ActivationKind.launch) {
+            args.setPromise(WinJS.UI.processAll().then(function () {
+
+                runSpecs();
+
+            }));
+        }
+    }, false);
 
     app.start();
-})();
+})(this);

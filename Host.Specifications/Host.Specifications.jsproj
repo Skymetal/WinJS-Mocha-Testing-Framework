@@ -47,9 +47,7 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    
     <PackageCertificateKeyFile>Host.Specifications_TemporaryKey.pfx</PackageCertificateKeyFile>
-    
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
@@ -60,11 +58,17 @@
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
-    <Content Include="js\default.js" />
     <Content Include="css\default.css" />
-    
+    <Content Include="js\default.js" />
+    <Content Include="js\specRunner.js" />
+    <Content Include="lib\chai.js" />
+    <Content Include="lib\mocha.css" />
+    <Content Include="lib\mocha.js" />
+    <Content Include="packages.config" />
+    <Content Include="specs\framework.spec.js" />
+    <Content Include="specs\helpers\spec.helpers.js" />
+    <Content Include="src\textfile.txt" />
     <None Include="Host.Specifications_TemporaryKey.pfx" />
-    
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
