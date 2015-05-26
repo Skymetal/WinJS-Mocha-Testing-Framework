@@ -4,7 +4,7 @@
 		{
 			"path": "./Host.Specifications/specs",
 			"file_exclude_patterns": ["*.js*"],
-			"folder_exclude_patterns": ["helpers"],
+			"folder_exclude_patterns": ["helpers", "out"],
 			"folder_include_patterns": []
 		}
 	],

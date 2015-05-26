@@ -53,16 +53,13 @@
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    
     <!--<Content Include="..\Host\js\projectInterconnectionClass.js">
       <Link>Host\projectInterconnectionClass.js</Link>
     </Content>-->
-
     <Content Include="..\Host\lib\*.js">
       <Link>src\%(RecursiveDir)%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-
+    </Content>
     <Content Include="default.html" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
@@ -74,9 +71,12 @@
     <Content Include="lib\chai.js" />
     <Content Include="lib\mocha.css" />
     <Content Include="lib\mocha.js" />
+    <Content Include="lib\sinon.js" />
     <Content Include="packages.config" />
     <Content Include="specs\framework.spec.js" />
     <Content Include="specs\helpers\spec.helpers.js" />
+    <Content Include="specs\oauth.spec.js" />
+    <Content Include="specs\platform.spec.js" />
     <Content Include="specs\projectInterconnection.spec.js" />
     <None Include="Host.Specifications_TemporaryKey.pfx" />
   </ItemGroup>

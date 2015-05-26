@@ -60,6 +60,8 @@
     <Content Include="images\storelogo.png" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <Content Include="lib\oauth.js" />
+    <Content Include="lib\platform.js" />
     <Content Include="lib\projectInterconnectionClass.js" />
     <None Include="Host_TemporaryKey.pfx" />
   </ItemGroup>
