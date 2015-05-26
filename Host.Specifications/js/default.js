@@ -12,19 +12,7 @@
 
     var activation = Windows.ApplicationModel.Activation,
         app = WinJS.Application;
-
-    function setupImages(exists) {
-        var promise;
-
-        if (exists) {
-            promise = WinJS.Promise.as(exists); /* this is an empty promise */
-        } else {
-            promise = Shared.copyImagesToIndexedFolder();
-        }
-
-        return promise;
-    }
-
+    
     function runSpecs() {
         // configure the spec runner
         var specRunner = new Hilo.SpecRunner({

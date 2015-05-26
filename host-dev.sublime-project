@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"path": "./",
+			"file_exclude_patterns": [],
+			"folder_exclude_patterns": [],
+			"folder_include_patterns": []
+		}
+	],
+
+	"settings":
+    {
+        "CoffeeScript":
+        {
+            "noWrapper": true,
+            "compileOnSave": true,
+            "compileDir": "out"
+        }
+    }
+}
+
+

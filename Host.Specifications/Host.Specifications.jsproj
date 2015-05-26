@@ -53,6 +53,16 @@
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    
+    <!--<Content Include="..\Host\js\projectInterconnectionClass.js">
+      <Link>Host\projectInterconnectionClass.js</Link>
+    </Content>-->
+
+    <Content Include="..\Host\lib\*.js">
+      <Link>src\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+
     <Content Include="default.html" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
@@ -67,7 +77,7 @@
     <Content Include="packages.config" />
     <Content Include="specs\framework.spec.js" />
     <Content Include="specs\helpers\spec.helpers.js" />
-    <Content Include="src\readme.txt" />
+    <Content Include="specs\projectInterconnection.spec.js" />
     <None Include="Host.Specifications_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
