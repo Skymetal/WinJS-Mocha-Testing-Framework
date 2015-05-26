@@ -1,3 +1,4 @@
 *.suo
 bld
 bin
+packages
