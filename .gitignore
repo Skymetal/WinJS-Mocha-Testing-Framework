@@ -2,3 +2,6 @@
 bld
 bin
 packages
+
+*.sublime-workspace
+*.user

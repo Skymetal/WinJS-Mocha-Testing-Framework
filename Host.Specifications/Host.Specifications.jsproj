@@ -67,7 +67,7 @@
     <Content Include="packages.config" />
     <Content Include="specs\framework.spec.js" />
     <Content Include="specs\helpers\spec.helpers.js" />
-    <Content Include="src\textfile.txt" />
+    <Content Include="src\readme.txt" />
     <None Include="Host.Specifications_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

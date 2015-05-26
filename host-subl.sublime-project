@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"path": "./Host.Specifications/specs",
+			"file_exclude_patterns": ["*.js*"],
+			"folder_exclude_patterns": ["helpers"],
+			"folder_include_patterns": []
+		}
+	],
+
+	"settings":
+    {
+        "CoffeeScript":
+        {
+            "noWrapper": true,
+            "compileOnSave": true,
+            "compileDir": "out"
+        }
+    }
+}
+
+
