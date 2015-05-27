@@ -5,3 +5,5 @@ packages
 
 *.sublime-workspace
 *.user
+/Host.Specifications/specs/*.js
+out

@@ -1,1 +1,0 @@
-﻿The Hilo specRunner is looking for the partner project, but wont' find it at this stage. So this file is being spat out to ensure the /src/ folder exists, and we don't get a folder doesn't exist error
