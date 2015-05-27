@@ -26,7 +26,7 @@
         specRunner.addEventListener("error", function (args) {
             document.querySelector("body").innerText = args.detail;
         });
-
+        
         // run the specs
         specRunner.run();
     }

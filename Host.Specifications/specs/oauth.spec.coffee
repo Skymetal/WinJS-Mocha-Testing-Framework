@@ -1,4 +1,4 @@
-describe "oauth", ->
+describe.only "oauth", ->
 
 	server = null
 
@@ -13,9 +13,8 @@ describe "oauth", ->
 	it "should have a test function that executes an xhr request", (done) ->
 		callback = sinon.spy()
 
-		vonbismark.oauthclient.getTest("http://themalldataserver.azurewebsites.net/retailers").then(callback).done( () ->
-    		expect(callback.calledWith("{ retailers: 'success' }")).to.be.true
+		vonbismark.oauthclient.getTest("http://themalldataserver.azurewebsites.net/retailers").then(callback).done () ->
+    		expect(callback).to.have.been.calledWith("{ retailers: 'success' }")
     		done()
-		)
 
 		server.respond()
