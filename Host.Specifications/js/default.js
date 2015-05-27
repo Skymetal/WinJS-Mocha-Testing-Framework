@@ -31,10 +31,11 @@
         specRunner.run();
     }
 
-    WinJS.Application.onerror = function (e) {
+    var showError = function (e) {
         var errorsList = document.querySelector("#errors ul");
         var errorEl = document.createElement("li");
-        errorEl.innerText = JSON.stringify(e.detail.exception);
+
+        errorEl.innerText = e.detail.exception ? JSON.stringify(e.detail.exception) : e.detail.errorMessage || "Unknown Error"
         errorsList.appendChild(errorEl);
 
         document.querySelector("#errors").style.display = "block";
@@ -42,6 +43,11 @@
         // preventing the application from being terminated
         return true;
     };
+
+    WinJS.Application.onerror = showError;
+    window.onerror = showError;
+
+
 
     app.addEventListener("activated", function (args) {
         if (args.detail.kind === activation.ActivationKind.launch) {

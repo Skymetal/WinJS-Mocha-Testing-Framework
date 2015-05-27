@@ -1,4 +1,4 @@
-describe.only "oauth", ->
+describe "oauth", ->
 
 	server = null
 
@@ -10,11 +10,15 @@ describe.only "oauth", ->
 	it "should have a VonBismark namespace with an oauth class in it", () ->
 		expect(vonbismark.oauthclient).to.exist
 
+	it.skip "should have an intentional failure", ->
+		expect(false).to.be.true
+
 	it "should have a test function that executes an xhr request", (done) ->
 		callback = sinon.spy()
 
 		vonbismark.oauthclient.getTest("http://themalldataserver.azurewebsites.net/retailers").then(callback).done () ->
-    		expect(callback).to.have.been.calledWith("{ retailers: 'success' }")
+    		expect(callback).to.have.been.calledWith("{ retailers: 'sucscess' }")
+    		# expect(callback.calledWith("{ retailers: 'success' }")).to.be.true
     		done()
 
 		server.respond()
