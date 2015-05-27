@@ -1412,8 +1412,11 @@
                         thisValue = this.getCall(i).thisValue;
 
                         for (prop in thisValue) {
-                            if (thisValue[prop] === this) {
-                                return prop;
+                            if (prop !== "clipboardData") // Prevents an Access Denied error in WinJS
+                            {
+                                if (thisValue[prop] === this) {
+                                    return prop;
+                                }
                             }
                         }
                     }
